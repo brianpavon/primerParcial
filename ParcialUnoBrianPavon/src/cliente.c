@@ -59,7 +59,7 @@ void menuClientes(sCliente *cliente, int sizeCliente)
  * \return Si se pudo realizar devuelve un 0, como señal de OK, sino devuelve -1
  *
  */
-int initArrayStruct(sCliente *cliente,int sizeCliente)
+int initArrayStructCliente(sCliente *cliente,int sizeCliente)
 {
     int i;//variable de control
 	int retorno = -1;
@@ -206,7 +206,7 @@ int imprimirTodosLosClientes(sCliente *cliente, int sizeCliente)
                 {
                     retorno = 0;
 
-                    printf("%3d %20s %20s %20s %20s",cliente[i]->idCliente,cliente[i]->name,cliente[i]->direccion,cliente[i]->localidad,cliente[i]->cuit);
+                    printf("%3d %20s %20s %20s %20s",cliente[i].idCliente,cliente[i].name,cliente[i].direccion,cliente[i].localidad,cliente[i].cuit);
 
                 }
 

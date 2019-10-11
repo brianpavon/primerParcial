@@ -7,14 +7,15 @@
 #include "pedidos.h"
 #include "cliente.h"
 
-void menuPedidos(sPedido *pedido,int sizePedido)
+
+void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente)
 {
 	int opcion;
 	int id = 0;
 		do
 		{
 		printf("\n\n--------------MENU DE PEDIDOS--------------\n\n");
-		initArrayStruct(pedido,sizePedido);
+		initArrayStructPedido(pedido,sizePedido);
 		printf("\n\n1-Alta:\n2-Modificacion:\n3-Baja:\n4-Salir\n");
 		getInt(&opcion,"Ingrese la opcion: \n","Opcion invalida\n",0,5,2);
 		switch(opcion)
@@ -41,9 +42,53 @@ void menuPedidos(sPedido *pedido,int sizePedido)
 
 }
 
+int initArrayStructPedido(sPedido *pedido,int sizePedido)
+{
+    int i;//variable de control
+	int retorno = -1;
+	if(pedido != NULL && sizePedido > 0)
+	{
 
+		for(i=0;i<sizePedido;i++)
+		{
+			pedido[i].status = PENDIENTE;
 
-int addPedidos(sCliente *cliente,int sizeCLiente,sPedido *pedido,int sizePedido,int id)
+		}
+		retorno = 0;
+	}
+	return retorno;
+}
+
+/**
+ * \brief busca en un array de estructuras, el primer lugar disponible
+ * \param array de estructura
+ * \param tamanio del array
+ * \return si encontro un lugar devuelve un 0, como señal de OK, sino devuelve -1
+ *
+ */
+
+int pedidos_buscarLugarLibre(sPedido *pedido,int sizePedido)
+{
+    int index = -1;
+	int i;
+	if(pedido != NULL && sizePedido > 0)
+	{
+
+		for(i=0;i<sizePedido;i++)
+		{
+			if(pedido[i].status == ISEMPTY)
+			{
+				index = i;
+				break;
+			}
+		}
+
+	}
+	return index;
+
+}
+
+int addPedidos(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido,int id)
 {
 	int i;
 	int retorno = -1;
@@ -64,7 +109,7 @@ int addPedidos(sCliente *cliente,int sizeCLiente,sPedido *pedido,int sizePedido,
 	                    retorno = 0;
 	                    pedido[i].idPedido = auxPedido.idPedido;
 	                    pedido[i].status = PENDIENTE;
-	                    printf("Se dio de alta al pedido %d del cliente %s",pedido[i]->idPedido,cliente[i]->name);
+	                    printf("Se dio de alta al pedido %d del cliente %s",pedido[i].idPedido,cliente[i].name);
 	                }
 
 	        else
@@ -88,7 +133,7 @@ int addPedidos(sCliente *cliente,int sizeCLiente,sPedido *pedido,int sizePedido,
 *
 */
 
-sGhostDos pedido_obtenerCliente(sCliente *cliente, int sizeCliente, sPedido *pedido)
+sCliente pedido_obtenerCliente(sCliente *cliente, int sizeCliente, sPedido *pedido)
 {
    int i;
    int index;
@@ -99,10 +144,10 @@ sGhostDos pedido_obtenerCliente(sCliente *cliente, int sizeCliente, sPedido *ped
    {
        for (i=0; i<sizeCliente; i++)
        {
-           printf("ID %d: %s\n", cliente[i].idCliente);
+           imprimirTodosLosClientes(cliente,sizeCliente);
        }
 
-       getInt(&index,"Seleccion el cliente que corresponde al ID: \n","ERROR\n",0,CANTIDAD_SECTORES,2);
+       getInt(&index,"Seleccion el cliente que corresponde al ID: \n","ERROR\n",0,CANTIDAD_CLIENTES,2);
 
        for (i=0; i<sizeCliente; i++)
        {
@@ -116,9 +161,7 @@ sGhostDos pedido_obtenerCliente(sCliente *cliente, int sizeCliente, sPedido *ped
        {
            printf("\nEl .... no existe\n\n");
        }
-   }
-
-   while(clienteRetorno.idCliente==-1);
+   }while(clienteRetorno.idCliente == -1);
    return clienteRetorno;
 }
 

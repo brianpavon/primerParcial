@@ -14,18 +14,17 @@
 #include "validaciones.h"
 #include "cliente.h"
 #include "pedidos.h"
-#include "plastico.h"
+
 
 #define CANTIDAD_CLIENTES 100
 #define CANTIDAD_PEDIDOS 1000
-#define CANTIDAD_PLASTICOS 3
+
 
 int main(void)
 {
 
 	sCliente cliente [CANTIDAD_CLIENTES];
 	sPedido pedido [CANTIDAD_PEDIDOS];
-	sPlastico plastico [CANTIDAD_PLASTICOS] ={{1,"HDPE"},{2,"LDPE"},{3,"PP"}};
 
 	int opcionMenu;
 
@@ -41,7 +40,7 @@ int main(void)
 			break;
 		case 2:
 
-			menuPedidos(pedido,CANTIDAD_PEDIDOS);
+			menuPedidos(pedido,CANTIDAD_PEDIDOS,cliente,CANTIDAD_PEDIDOS);
 			break;
 		case 3:
 

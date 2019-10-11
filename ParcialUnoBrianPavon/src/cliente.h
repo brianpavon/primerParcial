@@ -10,6 +10,7 @@
 #include "utn.h"
 #define VACIO 0
 #define OCUPADO 1
+#define CANTIDAD_CLIENTES 100
 
 typedef struct
 {
@@ -29,7 +30,7 @@ typedef struct
 }sGhostDos;
 
 void menuClientes(sCliente *cliente, int sizeCliente);
-int initArrayStruct(sCliente *cliente,int sizeCliente);
+int initArrayStructCliente(sCliente *cliente,int sizeCliente);
 int buscarLugarLibre(sCliente *cliente,int sizeCliente);
 int addCliente(sCliente *cliente,int sizeCliente,int id);
 int imprimirTodosLosClientes(sCliente *cliente, int sizeCliente);
