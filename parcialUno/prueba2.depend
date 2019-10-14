@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1571096056 source:c:\users\brian\desktop\parcialcodeblock\prueba2\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+
+1571032532 c:\users\brian\desktop\parcialcodeblock\prueba2\utn.h
+	<stdio.h>
+	<stdlib.h>
+
+1571096221 c:\users\brian\desktop\parcialcodeblock\prueba2\cliente.h
+	"utn.h"
+
+1571095705 source:c:\users\brian\desktop\parcialcodeblock\prueba2\pedidos.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"utn.h"
+	"pedidos.h"
+	"cliente.h"
+
+1571092788 c:\users\brian\desktop\parcialcodeblock\prueba2\pedidos.h
+	"utn.h"
+	"cliente.h"
+
+1571092887 source:c:\users\brian\desktop\parcialcodeblock\prueba2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"validaciones.h"
+	"cliente.h"
+	"pedidos.h"
+
+1571032846 c:\users\brian\desktop\parcialcodeblock\prueba2\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1571032846 source:c:\users\brian\desktop\parcialcodeblock\prueba2\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
+1571033005 source:c:\users\brian\desktop\parcialcodeblock\prueba2\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
