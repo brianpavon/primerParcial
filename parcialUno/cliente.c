@@ -15,10 +15,10 @@
  * \return void
  *
  */
-void menuClientes(sCliente *cliente, int sizeCliente)
+void menuClientes(sCliente *cliente, int sizeCliente,int id)
 {
 	int opcion;
-    int id = 0;
+
 	do
 	{
     system("cls");
@@ -30,7 +30,7 @@ void menuClientes(sCliente *cliente, int sizeCliente)
 		case 1:
 			addCliente(cliente,sizeCliente,id);
 			fflush(stdin);
-			id++;
+
 			break;
 		case 2:
 			menuModificacionClientes(cliente,sizeCliente);

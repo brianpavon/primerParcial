@@ -17,7 +17,7 @@ typedef struct
 }sCliente;
 
 
-void menuClientes(sCliente *cliente, int sizeCliente);
+void menuClientes(sCliente *cliente, int sizeCliente,int id);
 int initArrayStructCliente(sCliente *cliente,int sizeCliente);
 int buscarLugarLibre(sCliente *cliente,int sizeCliente);
 int addCliente(sCliente *cliente,int sizeCliente,int id);

@@ -18,7 +18,7 @@ typedef struct
 
 }sPedido;
 
-void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente);
+void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente,int id);
 sCliente pedido_obtenerCliente(sCliente *cliente, int sizeCliente, sPedido *pedido);
 int initArrayStructPedido(sPedido *pedido,int sizePedido);
 int pedidos_buscarLugarLibre(sPedido *pedido,int sizePedido);

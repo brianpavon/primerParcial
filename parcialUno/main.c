@@ -17,7 +17,8 @@ int main()
 
 	int opcionMenu;
 	int flag = 0;
-
+    int idCliente = 0;
+    int idPedido = 0;
     initArrayStructCliente(cliente,CANTIDAD_CLIENTES);
     initArrayStructPedido(pedido,CANTIDAD_PEDIDOS);
 	do
@@ -29,14 +30,15 @@ int main()
 		switch(opcionMenu)
 		{
 		case 1:
-			menuClientes(cliente,CANTIDAD_CLIENTES);
-
+			menuClientes(cliente,CANTIDAD_CLIENTES,idCliente);
+            idCliente++;
 			flag = 1;
 			break;
 		case 2:
             if(flag == 1)
             {
-            menuPedidos(pedido,CANTIDAD_PEDIDOS,cliente,CANTIDAD_CLIENTES);
+            menuPedidos(pedido,CANTIDAD_PEDIDOS,cliente,CANTIDAD_CLIENTES,idPedido);
+            idPedido++;
             }
             else if(flag == 0)
             {

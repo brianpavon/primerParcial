@@ -16,10 +16,10 @@
  * \return void
  *
  */
-void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente)
+void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente,int id)
 {
 	int opcion;
-	int id = 0;
+
 
 		do
 		{
@@ -31,7 +31,7 @@ void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeClient
                 {
                 case 1:
                     addPedidos(cliente,sizeCliente,pedido,sizePedido,id);
-                    id++;
+
                     system("pause");
 
                     break;

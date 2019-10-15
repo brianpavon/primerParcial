@@ -52,3 +52,20 @@
 	<string.h>
 	<ctype.h>
 
+1571176796 source:c:\users\alumno\desktop\primerparcial\parcialuno\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1571176796 source:c:\users\alumno\desktop\primerparcial\parcialuno\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
+1571176796 c:\users\alumno\desktop\primerparcial\parcialuno\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
