@@ -4,14 +4,15 @@
 #define STATUS_VACIO 0
 #define STATUS_OCUPADO 1
 #define CANTIDAD_CLIENTES 100
+#define CANTIDAD_LETRAS 60
 
 typedef struct
 {
     int idCliente;
-    char name[51];
-    char cuit[51];
-    char direccion[100];
-    char localidad[100];
+    char name[CANTIDAD_LETRAS];
+    char cuit[CANTIDAD_LETRAS];
+    char direccion[CANTIDAD_LETRAS];
+    char localidad[CANTIDAD_LETRAS];
     int status;
 
 }sCliente;

@@ -130,7 +130,7 @@ int addPedidos(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido,
 	                    pedido[i].idCliente = auxPedido.idCliente;
 	                    pedido[i].idPedido = auxPedido.idPedido;
 	                    pedido[i].status = PENDIENTE;
-	                    printf("Se dio de alta al pedido %d del cliente %s\n",pedido[i].idPedido,cliente[index].name);
+	                    printf("Se dio de alta al pedido %d para el cliente %s\n",pedido[i].idPedido,cliente[index].name);
 	                }
 
 	        else
@@ -339,7 +339,7 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
 	int i;
 	int j;
 	int retorno = -1;
-	if(pedido != NULL && sizePedido>0 )
+	if(pedido != NULL && sizePedido > 0 && cliente != NULL && sizeCliente > 0 )
 	{
             retorno = 0;
 		    printf("%20s %20s %20s %20s %20s\n\n","ID Pedido","Cliente","CUIT","Direccion","Cantidad Recolectada");
@@ -360,7 +360,7 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
 }
 
 /**
- * \brief funcion que nos muestra los clientes con sus pedidos pendientes
+ * \brief funcion que nos muestra la cantidad de pedidos pendientes por clientes
  * \param array de estructura
  * \param tamanio del array de estructura
  * \param array de estructura
@@ -378,7 +378,7 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
 
      if(cliente != NULL && sizeCliente >0 && pedido != NULL && sizePedido > 0)
      {
-         printf("%20s %20s %20s %20s %20s\n\n","Cliente","CUIT","Direccion","Cantidad Recolectada","Cantidad de pedidos pendiente");
+         printf("%20s %20s %20s %20s\n\n","Cliente","CUIT","Direccion","Cantidad de pedidos pendiente");
          for(i=0 ; i<sizePedido ; i++)
          {
              if(pedido[i].status == PENDIENTE)
@@ -387,15 +387,19 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
                  {
                      if(cliente[j].idCliente == pedido[i].idCliente && cliente[j].status == STATUS_OCUPADO)
                      {
-                         pedidos++;
                          retorno = 0;
+                         if(strcmp(cliente[j].name,cliente[j+1].name)<0)
+                         {
+                            pedidos++;
+                            cantidadPedidos = cantidadPedidos + pedidos;
+                         }
+
                      }
                  }
              }
-         }
-            cantidadPedidos = cantidadPedidos + pedidos;
-            printf("%20s %20s %20s %20.2f %20d\n",cliente[j].name,cliente[j].cuit,cliente[j].direccion,pedido[i].cantidadRecolectada,cantidadPedidos);
-     }
+         }printf("%20s %20s %20s %20d\n",cliente[j].name,cliente[j].cuit,cliente[j].direccion,cantidadPedidos);
+
+    }
 
      return retorno;
  }

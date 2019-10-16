@@ -110,10 +110,10 @@ void cliente_hcData(sCliente *cliente, int sizeCliente)
 {
     int i;
     int id[]= {1,8,9,7,2,4};
-    char name[][50]= {"Lorena","Eduardo","Carlos","Pedro","Carlos","Mateo"};
-    char direccion[][100]={"las heras 1","las heras 2","las heras 3","las heras 4","las heras 5","las heras 6"};
-    char localidad[][100]= {"22000","22000","15000","4000","21000","6000"};
-    char cuit[][50]={"1","1","3","3","2","2"};
+    char name[][CANTIDAD_LETRAS]= {"Cabsha SA","Kalop","Philips","Logitech","Samsung","Sony"};
+    char direccion[][CANTIDAD_LETRAS]={"las heras 1","las heras 2","las heras 3","las heras 4","las heras 5","las heras 6"};
+    char localidad[][CANTIDAD_LETRAS]= {"Berazategui","Avellaneda","CABA","Lomas de Zamora","Lanus","CABA"};
+    char cuit[][CANTIDAD_LETRAS]={"302697864","302697881","302697114","311296450","301527452","303261479"};
     for(i=0; i<6; i++)
     {
         cliente[i].idCliente = id[i];
@@ -147,14 +147,10 @@ int addCliente(sCliente *cliente,int sizeCliente,int id)
     {
             auxCliente.idCliente = id+1;
             fflush(stdin);
-            getString(auxCliente.name,"Ingrese el nombre del cliente: \n","DATO INCORRECTO\n",0,51,2);
-            //fflush(stdin);
-            getString(auxCliente.direccion,"Ingrese la direccion del cliente: \n","DATO INCORRECTO\n",0,100,2);
-            //fflush(stdin);
-            getString(auxCliente.localidad,"Ingrese la localidad del cliente: \n","DATO INCORRECTO\n",0,100,2);
-            //fflush(stdin);
-            getString(auxCliente.cuit,"Ingrese el CUIT del cliente: \n","DATO INCORRECTO\n",0,51,2);
-            //
+            getString(auxCliente.name,"Ingrese el nombre del cliente: \n","DATO INCORRECTO\n",0,CANTIDAD_LETRAS,2);
+            getString(auxCliente.cuit,"Ingrese el CUIT del cliente: \n","DATO INCORRECTO\n",0,CANTIDAD_LETRAS,2);
+            getString(auxCliente.direccion,"Ingrese la direccion del cliente: \n","DATO INCORRECTO\n",0,CANTIDAD_LETRAS,2);
+            getString(auxCliente.localidad,"Ingrese la localidad del cliente: \n","DATO INCORRECTO\n",0,CANTIDAD_LETRAS,2);
             fflush(stdin);
 
             printf("\n\n------------------------------------------------------------\n\n");
@@ -163,13 +159,13 @@ int addCliente(sCliente *cliente,int sizeCliente,int id)
                 {
                     retorno = 0;
                     cliente[i].idCliente = auxCliente.idCliente;
-                    strncpy(cliente[i].name,auxCliente.name,100);
-                    strncpy(cliente[i].direccion,auxCliente.direccion,100);
-                    strncpy(cliente[i].localidad,auxCliente.localidad,100);
-                    strncpy(cliente[i].cuit,auxCliente.cuit,51);
+                    strncpy(cliente[i].name,auxCliente.name,CANTIDAD_LETRAS);
+                    strncpy(cliente[i].cuit,auxCliente.cuit,CANTIDAD_LETRAS);
+                    strncpy(cliente[i].direccion,auxCliente.direccion,CANTIDAD_LETRAS);
+                    strncpy(cliente[i].localidad,auxCliente.localidad,CANTIDAD_LETRAS);
                     cliente[i].status = STATUS_OCUPADO;
                     printf("Se dio de alta al cliente ID:%d Nombre:%s CUIT:%s\n",cliente[i].idCliente,cliente[i].name,cliente[i].cuit);
-                    system("pause");
+
                 }
 
         else
@@ -274,20 +270,20 @@ void menuModificacionClientes(sCliente *cliente, int sizeCliente)
             {
                 case 1:
                     system("cls");
-                    getString(auxCliente.direccion,"Ingrese la nueva direccion del cliente:\n","DATO INCORRECTO\n",0,100,2);
+                    getString(auxCliente.direccion,"Ingrese la nueva direccion del cliente:\n","DATO INCORRECTO\n",0,CANTIDAD_LETRAS,2);
                     getChar(&rta,"La direccion se modificara. Ingrese s para continuar...\n","La direccion no se modifica\n",'s','z',2);
                     if(rta == 's')
                     {
-                        strncpy(cliente[i].direccion,auxCliente.direccion,100);
+                        strncpy(cliente[i].direccion,auxCliente.direccion,CANTIDAD_LETRAS);
                     }
                     break;
                 case 2:
                     system("cls");
-                    getString(auxCliente.localidad,"Ingrese la nueva localidad del cliente:\n","DATO INCORRECTO\n",0,100,2);
+                    getString(auxCliente.localidad,"Ingrese la nueva localidad del cliente:\n","DATO INCORRECTO\n",0,CANTIDAD_LETRAS,2);
                     getChar(&rta,"La direccion se modificara. Ingrese s para continuar...\n","La direccion no se modifica\n",'s','z',2);
                     if(rta == 's')
                     {
-                        strncpy(cliente[i].localidad,auxCliente.localidad,100);
+                        strncpy(cliente[i].localidad,auxCliente.localidad,CANTIDAD_LETRAS);
                     }
                     break;
 
@@ -327,6 +323,7 @@ int bajaClientePorId(sCliente *cliente, int sizeCliente)
     else
         {
             printf("El ID no corresponde a un cliente activo\n");
+            system("pause");
         }
 
 

@@ -16,7 +16,8 @@ int main()
 	sPedido pedido [CANTIDAD_PEDIDOS];
 
 	int opcionMenu;
-	int flag = 0;
+	int flagCliente = 0;
+	int flagPedido = 0;
     int idCliente = 0;
     int idPedido = 0;
     initArrayStructCliente(cliente,CANTIDAD_CLIENTES);
@@ -25,40 +26,82 @@ int main()
 	{
 	    system("cls");
     	printf("-------------------MENU DE OPCIONES-------------------\n\n");
-		printf("1-Menu Cliente:\n2-Menu de Pedidos: \n3-Reportes:\n4-Salir\n");
-		getInt(&opcionMenu,"Ingrese la opcion: \n","Opcion incorrecta\n",0,4,2);
+		printf("1-Alta Cliente:\n2-Menu de modificacion de cliente: \n3-Baja de cliente:\n4-Crear pedido:\n5-Procesar residuos\n6-Informes: \n7-Salir\n");
+		getInt(&opcionMenu,"Ingrese la opcion: \n","Opcion incorrecta\n",0,7,2);
 		switch(opcionMenu)
 		{
 		case 1:
-			menuClientes(cliente,CANTIDAD_CLIENTES,idCliente);
-            idCliente++;
-			flag = 1;
+		    system("cls");
+			if(addCliente(cliente,CANTIDAD_CLIENTES,idCliente)==0)
+            {
+                idCliente++;
+                flagCliente = 1;
+                system("pause");
+            }
+            else
+            {
+                printf("No se dio de alta el cliente\n");
+                system("pause");
+            }
 			break;
 		case 2:
-            if(flag == 1)
+            if(flagCliente == 1)
             {
-            menuPedidos(pedido,CANTIDAD_PEDIDOS,cliente,CANTIDAD_CLIENTES,idPedido);
-            idPedido++;
+            menuModificacionClientes(cliente,CANTIDAD_CLIENTES);
             }
-            else if(flag == 0)
+            else if(flagCliente == 0)
             {
                 printf("Primero debe dar de altas clientes\n\n");
                 system("pause");
             }
 			break;
 		case 3:
-            if(flag == 1)
+            if(flagCliente == 1)
             {
-              pedidos_menuReportes(pedido,CANTIDAD_PEDIDOS,cliente,CANTIDAD_CLIENTES);
+              bajaClientePorId(cliente,CANTIDAD_CLIENTES);
             }
-            else if(flag == 0)
+            else if(flagCliente == 0)
             {
                 printf("Primero debe dar de altas clientes\n\n");
                 system("pause");
             }
 			break;
+        case 4:
+            if(flagCliente == 1 && addPedidos(cliente,CANTIDAD_CLIENTES,pedido,CANTIDAD_PEDIDOS,idPedido)==0)
+            {
+                idPedido++;
+                flagCliente = 1;
+            }
+            else if(flagCliente == 0)
+            {
+                printf("Primero debe dar de altas clientes\n\n");
+                system("pause");
+            }
+            break;
+        case 5:
+            if(flagCliente == 1 && flagPedido == 1)
+            {
+                pedidos_procesarPlasticos(pedido,CANTIDAD_PEDIDOS);
+            }
+            else if(flagCliente == 0 && flagPedido == 0)
+            {
+                printf("Primero debe dar de altas clientes y pedidos\n\n");
+                system("pause");
+            }
+            break;
+        case 6:
+                if(flagCliente == 1 && flagPedido == 1)
+                {
+                    pedidos_menuReportes(pedido,CANTIDAD_PEDIDOS,cliente,CANTIDAD_CLIENTES);
+                }
+                else if(flagCliente == 0 && flagPedido == 0)
+                {
+                    printf("Primero debe dar de altas clientes y pedidos\n\n");
+                    system("pause");
+                }
+            break;
 
 		}
-	}while(opcionMenu != 4);
+	}while(opcionMenu != 7);
     return 0;
 }
