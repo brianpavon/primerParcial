@@ -36,7 +36,7 @@ int main()
             {
                 idCliente++;
                 flagCliente = 1;
-                system("pause");
+
             }
             else
             {
@@ -70,7 +70,7 @@ int main()
             if(flagCliente == 1 && addPedidos(cliente,CANTIDAD_CLIENTES,pedido,CANTIDAD_PEDIDOS,idPedido)==0)
             {
                 idPedido++;
-                flagCliente = 1;
+                flagPedido = 1;
             }
             else if(flagCliente == 0)
             {
@@ -81,6 +81,7 @@ int main()
         case 5:
             if(flagCliente == 1 && flagPedido == 1)
             {
+
                 pedidos_procesarPlasticos(pedido,CANTIDAD_PEDIDOS);
             }
             else if(flagCliente == 0 && flagPedido == 0)

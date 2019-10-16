@@ -131,6 +131,7 @@ int addPedidos(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido,
 	                    pedido[i].idPedido = auxPedido.idPedido;
 	                    pedido[i].status = PENDIENTE;
 	                    printf("Se dio de alta al pedido %d para el cliente %s\n",pedido[i].idPedido,cliente[index].name);
+	                    system("pause");
 	                }
 
 	        else
@@ -256,6 +257,7 @@ int buscarPedidoPorId(sPedido *pedido, int sizePedido)
     float totalIngresado;
     char respuesta;
 
+    system("cls");
     printf("------VA A PROCESAR LOS RESIDUOS------\n\n");
     index = buscarPedidoPorId(pedido,sizePedido);
     if(index != -1 && pedido[index].cantidadRecolectada > 0)

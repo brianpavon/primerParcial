@@ -69,7 +69,7 @@
 	<stdlib.h>
 	<string.h>
 
-1571176951 source:c:\users\alumno\desktop\primerparcial\parcialuno\main.c
+1571186015 source:c:\users\alumno\desktop\primerparcial\parcialuno\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
@@ -88,7 +88,7 @@
 	"utn.h"
 	"cliente.h"
 
-1571183916 source:c:\users\alumno\desktop\primerparcial\parcialuno\pedidos.c
+1571186256 source:c:\users\alumno\desktop\primerparcial\parcialuno\pedidos.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>
@@ -97,7 +97,7 @@
 	"pedidos.h"
 	"cliente.h"
 
-1571177998 source:c:\users\alumno\desktop\primerparcial\parcialuno\cliente.c
+1571186015 source:c:\users\alumno\desktop\primerparcial\parcialuno\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>

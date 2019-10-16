@@ -165,7 +165,7 @@ int addCliente(sCliente *cliente,int sizeCliente,int id)
                     strncpy(cliente[i].localidad,auxCliente.localidad,CANTIDAD_LETRAS);
                     cliente[i].status = STATUS_OCUPADO;
                     printf("Se dio de alta al cliente ID:%d Nombre:%s CUIT:%s\n",cliente[i].idCliente,cliente[i].name,cliente[i].cuit);
-
+                    system("pause");
                 }
 
         else
@@ -233,9 +233,7 @@ int buscarClientePorId(sCliente *cliente, int sizeCliente)
 					retorno = i; //devuelvo la posicion
 					break;
 				}
-
 			}
-
 		}
 	}
 	return retorno;
