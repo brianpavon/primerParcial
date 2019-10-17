@@ -15,8 +15,15 @@ typedef struct
 	float plasticoLdpe;
 	float plasticoPp;
 	int idCliente;
+	int contPedidos;
 
 }sPedido;
+
+typedef struct
+{
+    int idPedido;
+    int contadorPedido;
+}auxPedido;
 
 void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente,int id);
 sCliente pedido_obtenerCliente(sCliente *cliente, int sizeCliente, sPedido *pedido);
@@ -30,5 +37,6 @@ int pedidos_procesarPlasticos(sPedido *pedido,int sizePedido);
 void pedidos_menuReportes(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente);
 int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente *cliente, int sizeCliente);
 int cantidadDePedidosPorCliente(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente);
+ int buscarPorIdSinPedirDatos(sPedido *pedido, int sizePedido, int id);
 
 #endif /* PEDIDOS_H_ */

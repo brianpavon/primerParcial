@@ -111,18 +111,12 @@ void pedido_hcData(sPedido *pedido, int sizePedido)
     int i;
     int id[]= {2,3,4,5,6};
     float cantidadRecolectada[] = {20,30,110,90,130,50};
-    float plasticoHdpe[] = {5,10,30,20,100,20};
-	float plasticoLdpe[] = {10,5,60,60,15,20};;
-	float plasticoPp[] = {5,15,15,10,10};;
 	int idCliente[] = {3,8,9,7,2,4};
 
     for(i=0; i<6; i++)
     {
         pedido[i].idPedido = id[i];
         pedido[i].cantidadRecolectada = cantidadRecolectada[i];
-        pedido[i].plasticoHdpe = plasticoHdpe[i];
-        pedido[i].plasticoLdpe = plasticoLdpe[i];
-        pedido[i].plasticoPp = plasticoPp[i];
         pedido[i].idCliente = idCliente[i];
         pedido[i].status = PENDIENTE;
 
@@ -434,3 +428,31 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
 
      return retorno;
  }
+
+ /**
+ * \brief busca en un array de estructura por su ID
+ * \param array de estructura
+ * \param tamanio del array de estructura
+ * \param id establecido en la estructura
+ * \return devuelve la posicion del ID, con un 0 en señal de ok, sino -1
+ *
+ */
+ int buscarPorIdSinPedirDatos(sPedido *pedido, int sizePedido, int id)
+{
+    int i;
+    int retorno = -1;
+
+    if(pedido!= NULL && sizePedido>0)
+    {
+
+        for(i=0; i<sizePedido; i++)
+        {
+            if(pedido[i].idPedido == id)
+            {
+                retorno = i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}

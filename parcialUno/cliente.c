@@ -328,7 +328,7 @@ int bajaClientePorId(sCliente *cliente, int sizeCliente)
     return retorno;
 }
 
-  /**
+ /**
  * \brief busca en un array de estructura por su ID
  * \param array de estructura
  * \param tamanio del array de estructura
@@ -336,7 +336,7 @@ int bajaClientePorId(sCliente *cliente, int sizeCliente)
  * \return devuelve la posicion del ID, con un 0 en señal de ok, sino -1
  *
  */
- int buscarPorId(sCliente *cliente, int sizeCliente, int id)
+ int cliente_buscarPorIdSinPedirDatos(sCliente *cliente, int sizeCliente, int id)
 {
     int i;
     int retorno = -1;

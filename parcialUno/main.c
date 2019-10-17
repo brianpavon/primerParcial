@@ -4,6 +4,7 @@
 #include "validaciones.h"
 #include "cliente.h"
 #include "pedidos.h"
+#include "informes.h"
 
 #define STATUS_VACIO 0
 #define STATUS_OCUPADO 1
@@ -16,8 +17,6 @@ int main()
 	sPedido pedido [CANTIDAD_PEDIDOS];
 
 	int opcionMenu;
-	int flagCliente = 0;
-	int flagPedido = 0;
     int idCliente = 0;
     int idPedido = 0;
     initArrayStructCliente(cliente,CANTIDAD_CLIENTES);
@@ -29,8 +28,8 @@ int main()
 	    system("cls");
 	    //cliente_hcData(cliente,CANTIDAD_CLIENTES);
     	printf("-------------------MENU DE OPCIONES-------------------\n\n");
-		printf("1-Alta Cliente:\n2-Menu de modificacion de cliente: \n3-Baja de cliente:\n4-Crear pedido:\n5-Procesar residuos\n6-Informes: \n7-Salir\n");
-		getInt(&opcionMenu,"Ingrese la opcion: \n","Opcion incorrecta\n",0,7,2);
+		printf("1-Alta Cliente:\n2-Menu de modificacion de cliente: \n3-Baja de cliente:\n4-Crear pedido:\n5-Procesar residuos\n6-Informes: \n7-Mas informes\n8-Salir\n");
+		getInt(&opcionMenu,"Ingrese la opcion: \n","Opcion incorrecta\n",0,8,2);
 		switch(opcionMenu)
 		{
 		case 1:
@@ -38,7 +37,6 @@ int main()
 			if(addCliente(cliente,CANTIDAD_CLIENTES,idCliente)==0)
             {
                 idCliente++;
-                flagCliente = 1;
 
             }
             else
@@ -48,64 +46,32 @@ int main()
             }
 			break;
 		case 2:
-            if(flagCliente == 1)
-            {
             menuModificacionClientes(cliente,CANTIDAD_CLIENTES);
-            }
-            else if(flagCliente == 0)
-            {
-                printf("Primero debe dar de altas clientes\n\n");
-                system("pause");
-            }
+
 			break;
 		case 3:
-            if(flagCliente == 1)
-            {
-              bajaClientePorId(cliente,CANTIDAD_CLIENTES);
-            }
-            else if(flagCliente == 0)
-            {
-                printf("Primero debe dar de altas clientes\n\n");
-                system("pause");
-            }
+            bajaClientePorId(cliente,CANTIDAD_CLIENTES);
+            system("pause");
 			break;
         case 4:
-            if(flagCliente == 1 && addPedidos(cliente,CANTIDAD_CLIENTES,pedido,CANTIDAD_PEDIDOS,idPedido)==0)
+            if(addPedidos(cliente,CANTIDAD_CLIENTES,pedido,CANTIDAD_PEDIDOS,idPedido)==0)
             {
                 idPedido++;
-                flagPedido = 1;
-            }
-            else if(flagCliente == 0)
-            {
-                printf("Primero debe dar de altas clientes\n\n");
-                system("pause");
             }
             break;
         case 5:
-            if(flagCliente == 1 && flagPedido == 1)
-            {
-
-                pedidos_procesarPlasticos(pedido,CANTIDAD_PEDIDOS);
-            }
-            else if(flagCliente == 0 && flagPedido == 0)
-            {
-                printf("Primero debe dar de altas clientes y pedidos\n\n");
-                system("pause");
-            }
+            pedidos_procesarPlasticos(pedido,CANTIDAD_PEDIDOS);
+            system("pause");
             break;
         case 6:
-                if(flagCliente == 1 && flagPedido == 1)
-                {
-                    pedidos_menuReportes(pedido,CANTIDAD_PEDIDOS,cliente,CANTIDAD_CLIENTES);
-                }
-                else if(flagCliente == 0 && flagPedido == 0)
-                {
-                    printf("Primero debe dar de altas clientes y pedidos\n\n");
-                    system("pause");
-                }
+                pedidos_menuReportes(pedido,CANTIDAD_PEDIDOS,cliente,CANTIDAD_CLIENTES);
+                system("pause");
+            break;
+        case 7:
+            informes_menuInformesMasComplejos(cliente,CANTIDAD_CLIENTES,pedido,CANTIDAD_PEDIDOS);
             break;
 
 		}
-	}while(opcionMenu != 7);
+	}while(opcionMenu != 8);
     return 0;
 }

@@ -52,43 +52,44 @@
 	<string.h>
 	<ctype.h>
 
-1571176796 source:c:\users\alumno\desktop\primerparcial\parcialuno\utn.c
+1571362009 source:c:\users\alumno\desktop\primerparcial\parcialuno\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1571176796 source:c:\users\alumno\desktop\primerparcial\parcialuno\validaciones.c
+1571362009 source:c:\users\alumno\desktop\primerparcial\parcialuno\validaciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"validaciones.h"
 
-1571176796 c:\users\alumno\desktop\primerparcial\parcialuno\validaciones.h
+1571362009 c:\users\alumno\desktop\primerparcial\parcialuno\validaciones.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1571186015 source:c:\users\alumno\desktop\primerparcial\parcialuno\main.c
+1571356713 source:c:\users\alumno\desktop\primerparcial\parcialuno\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 	"validaciones.h"
 	"cliente.h"
 	"pedidos.h"
+	"informes.h"
 
-1571176796 c:\users\alumno\desktop\primerparcial\parcialuno\utn.h
+1571362009 c:\users\alumno\desktop\primerparcial\parcialuno\utn.h
 	<stdio.h>
 	<stdlib.h>
 
-1571177721 c:\users\alumno\desktop\primerparcial\parcialuno\cliente.h
+1571355120 c:\users\alumno\desktop\primerparcial\parcialuno\cliente.h
 	"utn.h"
 
-1571176951 c:\users\alumno\desktop\primerparcial\parcialuno\pedidos.h
+1571354366 c:\users\alumno\desktop\primerparcial\parcialuno\pedidos.h
 	"utn.h"
 	"cliente.h"
 
-1571186256 source:c:\users\alumno\desktop\primerparcial\parcialuno\pedidos.c
+1571355893 source:c:\users\alumno\desktop\primerparcial\parcialuno\pedidos.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>
@@ -97,7 +98,7 @@
 	"pedidos.h"
 	"cliente.h"
 
-1571186015 source:c:\users\alumno\desktop\primerparcial\parcialuno\cliente.c
+1571354766 source:c:\users\alumno\desktop\primerparcial\parcialuno\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>
@@ -157,4 +158,19 @@
 	"utn.h"
 	"pedidos.h"
 	"cliente.h"
+
+1571356738 source:c:\users\alumno\desktop\primerparcial\parcialuno\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"utn.h"
+	"pedidos.h"
+	"cliente.h"
+	"informes.h"
+
+1571356674 c:\users\alumno\desktop\primerparcial\parcialuno\informes.h
+	"utn.h"
+	"cliente.h"
+	"pedidos.h"
 

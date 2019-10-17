@@ -26,7 +26,7 @@ int imprimirTodosLosClientes(sCliente *cliente, int sizeCliente);
 int buscarClientePorId(sCliente *cliente, int sizeCliente);
 void menuModificacionClientes(sCliente *cliente, int sizeCliente);
 int bajaClientePorId(sCliente *cliente, int sizeCliente);
-int buscarPorId(sCliente *cliente, int sizeCliente, int id);
+int cliente_buscarPorIdSinPedirDatos(sCliente *cliente, int sizeCliente, int id);
 void cliente_hcData(sCliente *cliente, int sizeCliente);
 
 
