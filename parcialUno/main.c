@@ -22,9 +22,11 @@ int main()
     int idPedido = 0;
     initArrayStructCliente(cliente,CANTIDAD_CLIENTES);
     initArrayStructPedido(pedido,CANTIDAD_PEDIDOS);
+    cliente_hcData(cliente,CANTIDAD_CLIENTES);
 	do
 	{
 	    system("cls");
+	    //cliente_hcData(cliente,CANTIDAD_CLIENTES);
     	printf("-------------------MENU DE OPCIONES-------------------\n\n");
 		printf("1-Alta Cliente:\n2-Menu de modificacion de cliente: \n3-Baja de cliente:\n4-Crear pedido:\n5-Procesar residuos\n6-Informes: \n7-Salir\n");
 		getInt(&opcionMenu,"Ingrese la opcion: \n","Opcion incorrecta\n",0,7,2);

@@ -304,7 +304,7 @@ void pedidos_menuReportes(sPedido *pedido,int sizePedido,sCliente *cliente,int s
             printf("******---MENU DE REPORTES******---\n\n");
 
             printf("1-Informar clientes con pedidos pendientes\n2-Informar pedidos pendientes\n3-Informar pedidos procesados\n4-Salir\n");
-            getInt(&opcion,"Ingrese el informe que desea\n","No es una opción válida",1,4,2);
+            getInt(&opcion,"Ingrese el informe que desea\n","No es una opcion válida",1,4,2);
             switch(opcion)
             {
                 case 1:
@@ -389,18 +389,18 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
                  {
                      if(cliente[j].idCliente == pedido[i].idCliente && cliente[j].status == STATUS_OCUPADO)
                      {
-                         retorno = 0;
-                         if(strcmp(cliente[j].name,cliente[j+1].name)<0)
+
+                         if(strcmp(cliente[j].name,cliente[j+1].name)!=0)
                          {
+                            retorno = 0;
                             pedidos++;
                             cantidadPedidos = cantidadPedidos + pedidos;
+                            printf("%20s %20s %20s %20d\n",cliente[j].name,cliente[j].cuit,cliente[j].direccion,cantidadPedidos);
                          }
-
                      }
                  }
              }
-         }printf("%20s %20s %20s %20d\n",cliente[j].name,cliente[j].cuit,cliente[j].direccion,cantidadPedidos);
-
+         }
     }
 
      return retorno;

@@ -105,3 +105,56 @@
 	"utn.h"
 	"cliente.h"
 
+1571283708 source:c:\users\brian\desktop\primerparcial\parcialuno\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"utn.h"
+	"cliente.h"
+
+1571279674 c:\users\brian\desktop\primerparcial\parcialuno\utn.h
+	<stdio.h>
+	<stdlib.h>
+
+1571279674 c:\users\brian\desktop\primerparcial\parcialuno\cliente.h
+	"utn.h"
+
+1571283437 source:c:\users\brian\desktop\primerparcial\parcialuno\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"validaciones.h"
+	"cliente.h"
+	"pedidos.h"
+
+1571279674 c:\users\brian\desktop\primerparcial\parcialuno\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1571279674 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
+	"utn.h"
+	"cliente.h"
+
+1571279674 source:c:\users\brian\desktop\primerparcial\parcialuno\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1571279674 source:c:\users\brian\desktop\primerparcial\parcialuno\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
+1571282831 source:c:\users\brian\desktop\primerparcial\parcialuno\pedidos.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"utn.h"
+	"pedidos.h"
+	"cliente.h"
+
