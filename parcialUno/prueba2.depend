@@ -120,7 +120,7 @@
 1571310868 c:\users\brian\desktop\primerparcial\parcialuno\cliente.h
 	"utn.h"
 
-1571310868 source:c:\users\brian\desktop\primerparcial\parcialuno\main.c
+1571312506 source:c:\users\brian\desktop\primerparcial\parcialuno\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
@@ -133,7 +133,7 @@
 	<stdlib.h>
 	<string.h>
 
-1571310868 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
+1571312506 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
 	"utn.h"
 	"cliente.h"
 

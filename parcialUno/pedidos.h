@@ -22,6 +22,7 @@ void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeClient
 sCliente pedido_obtenerCliente(sCliente *cliente, int sizeCliente, sPedido *pedido);
 int initArrayStructPedido(sPedido *pedido,int sizePedido);
 int pedidos_buscarLugarLibre(sPedido *pedido,int sizePedido);
+void pedido_hcData(sPedido *pedido, int sizePedido);
 int addPedidos(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido,int id);
 int imprimirPedidosPendientesConClientes(sPedido *pedido, int sizePedido,sCliente *cliente, int sizeCliente);
 int imprimirPedidosPendientes(sPedido *pedido, int sizePedido);

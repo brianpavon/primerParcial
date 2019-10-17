@@ -97,6 +97,37 @@ int pedidos_buscarLugarLibre(sPedido *pedido,int sizePedido)
 	return index;
 
 }
+
+ /**
+ * \brief permite harcodear una estructura de array, cargando datos por defecto
+ * \param array de estructura
+ * \param tamanio del array
+ * \return void
+ *
+ */
+
+void pedido_hcData(sPedido *pedido, int sizePedido)
+{
+    int i;
+    int id[]= {2,3,4,5,6};
+    float cantidadRecolectada[] = {20,30,110,90,130,50};
+    float plasticoHdpe[] = {5,10,30,20,100,20};
+	float plasticoLdpe[] = {10,5,60,60,15,20};;
+	float plasticoPp[] = {5,15,15,10,10};;
+	int idCliente[] = {3,8,9,7,2,4};
+
+    for(i=0; i<6; i++)
+    {
+        pedido[i].idPedido = id[i];
+        pedido[i].cantidadRecolectada = cantidadRecolectada[i];
+        pedido[i].plasticoHdpe = plasticoHdpe[i];
+        pedido[i].plasticoLdpe = plasticoLdpe[i];
+        pedido[i].plasticoPp = plasticoPp[i];
+        pedido[i].idCliente = idCliente[i];
+        pedido[i].status = PENDIENTE;
+
+    }
+}
 /**
  * \brief funcion que nos permitira cargar una estructura en un array
  * \param array de estructura
