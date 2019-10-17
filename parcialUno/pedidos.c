@@ -380,23 +380,21 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
 
      if(cliente != NULL && sizeCliente >0 && pedido != NULL && sizePedido > 0)
      {
-         printf("%20s %20s %20s %20s\n\n","Cliente","CUIT","Direccion","Cantidad de pedidos pendiente");
+         printf("%20s %20s %20s %30s\n\n","Cliente","CUIT","Direccion","Cantidad de pedidos pendiente");
          for(i=0 ; i<sizePedido ; i++)
          {
              if(pedido[i].status == PENDIENTE)
              {
                  for(j=0; j<sizeCliente ; j++)
                  {
-                     if(cliente[j].idCliente == pedido[i].idCliente && cliente[j].status == STATUS_OCUPADO)
+                     if(cliente[j].idCliente == pedido[i].idCliente && strcmp(cliente[j].name,cliente[j+1].name)!=0)
                      {
 
-                         if(strcmp(cliente[j].name,cliente[j+1].name)!=0)
-                         {
                             retorno = 0;
                             pedidos++;
                             cantidadPedidos = cantidadPedidos + pedidos;
                             printf("%20s %20s %20s %20d\n",cliente[j].name,cliente[j].cuit,cliente[j].direccion,cantidadPedidos);
-                         }
+
                      }
                  }
              }

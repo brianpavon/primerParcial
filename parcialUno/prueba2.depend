@@ -105,7 +105,7 @@
 	"utn.h"
 	"cliente.h"
 
-1571283708 source:c:\users\brian\desktop\primerparcial\parcialuno\cliente.c
+1571310868 source:c:\users\brian\desktop\primerparcial\parcialuno\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>
@@ -113,14 +113,14 @@
 	"utn.h"
 	"cliente.h"
 
-1571279674 c:\users\brian\desktop\primerparcial\parcialuno\utn.h
+1571310868 c:\users\brian\desktop\primerparcial\parcialuno\utn.h
 	<stdio.h>
 	<stdlib.h>
 
-1571279674 c:\users\brian\desktop\primerparcial\parcialuno\cliente.h
+1571310868 c:\users\brian\desktop\primerparcial\parcialuno\cliente.h
 	"utn.h"
 
-1571283437 source:c:\users\brian\desktop\primerparcial\parcialuno\main.c
+1571310868 source:c:\users\brian\desktop\primerparcial\parcialuno\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
@@ -128,22 +128,22 @@
 	"cliente.h"
 	"pedidos.h"
 
-1571279674 c:\users\brian\desktop\primerparcial\parcialuno\validaciones.h
+1571310868 c:\users\brian\desktop\primerparcial\parcialuno\validaciones.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1571279674 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
+1571310868 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
 	"utn.h"
 	"cliente.h"
 
-1571279674 source:c:\users\brian\desktop\primerparcial\parcialuno\utn.c
+1571310868 source:c:\users\brian\desktop\primerparcial\parcialuno\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1571279674 source:c:\users\brian\desktop\primerparcial\parcialuno\validaciones.c
+1571310868 source:c:\users\brian\desktop\primerparcial\parcialuno\validaciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
