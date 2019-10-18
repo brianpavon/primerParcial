@@ -109,7 +109,7 @@ int buscarLugarLibre(sCliente *cliente,int sizeCliente)
 void cliente_hcData(sCliente *cliente, int sizeCliente)
 {
     int i;
-    int id[]= {3,8,9,7,2,4};
+    int id[]= {1,2,3,4,5,6};
     char name[][CANTIDAD_LETRAS]= {"Cabsha SA","Kalop","Philips","Logitech","Samsung","Sony"};
     char direccion[][CANTIDAD_LETRAS]={"las heras 1","las heras 2","las heras 3","las heras 4","las heras 5","las heras 6"};
     char localidad[][CANTIDAD_LETRAS]= {"Berazategui","Avellaneda","CABA","Lomas de Zamora","Lanus","CABA"};
@@ -314,7 +314,7 @@ int bajaClientePorId(sCliente *cliente, int sizeCliente)
         {
             cliente[i].status = STATUS_VACIO;
             printf("El cliente %s fue dado de baja\n",cliente[i].name);
-            system("pause");
+
         }
 
     }

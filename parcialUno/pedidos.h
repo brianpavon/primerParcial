@@ -8,22 +8,17 @@
 
 typedef struct
 {
+    int idCliente;
 	int idPedido;
 	int status;
     float cantidadRecolectada;
 	float plasticoHdpe;
 	float plasticoLdpe;
 	float plasticoPp;
-	int idCliente;
 	int contPedidos;
 
 }sPedido;
 
-typedef struct
-{
-    int idPedido;
-    int contadorPedido;
-}auxPedido;
 
 void menuPedidos(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente,int id);
 sCliente pedido_obtenerCliente(sCliente *cliente, int sizeCliente, sPedido *pedido);

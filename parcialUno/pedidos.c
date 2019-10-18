@@ -151,9 +151,9 @@ int addPedidos(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido,
 	                if(respuesta == 's')
 	                {
 	                    retorno = 0;
-	                    pedido[i].cantidadRecolectada = auxPedido.cantidadRecolectada;
 	                    pedido[i].idCliente = auxPedido.idCliente;
 	                    pedido[i].idPedido = auxPedido.idPedido;
+	                    pedido[i].cantidadRecolectada = auxPedido.cantidadRecolectada;
 	                    pedido[i].status = PENDIENTE;
 	                    printf("Se dio de alta al pedido %d para el cliente %s\n",pedido[i].idPedido,cliente[index].name);
 	                    system("pause");
