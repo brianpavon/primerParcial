@@ -16,6 +16,7 @@ typedef struct
 	float plasticoLdpe;
 	float plasticoPp;
 	int contPedidos;
+	float cantidadReciclada;
 
 }sPedido;
 

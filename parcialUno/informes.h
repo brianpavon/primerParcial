@@ -10,7 +10,10 @@ int informes_clienteConMasPedidosPendientes(sCliente *cliente, int sizeCliente, 
 int informes_clienteConMasPedidosCompletados(sCliente *cliente, int sizeCliente, sPedido *pedido, int sizePedido);
 int informes_cantidadPedidosPorCliente(sCliente *cliente, int sizeCliente, sPedido *pedido, int sizePedido);
 int informes_clienteRecicloMasKilos(sCliente *cliente,int sizeCliente, sPedido *pedido, int sizePedido);
-
+int informes_clienteRecicloMenosKilos(sCliente *cliente,int sizeCliente, sPedido *pedido, int sizePedido);
+int informes_clienteReciclaronMasMilKilos(sCliente *cliente,int sizeCliente, sPedido *pedido, int sizePedido);
+int informes_clienteReciclaronMenosCienKilos(sCliente *cliente,int sizeCliente, sPedido *pedido, int sizePedido);
+int informes_porcentajeReciclado(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido);
 
 
 #endif /* INFORMES_H_ */

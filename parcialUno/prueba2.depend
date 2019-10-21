@@ -135,7 +135,7 @@
 	<stdlib.h>
 	<string.h>
 
-1571616756 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
+1571630522 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
 	"utn.h"
 	"cliente.h"
 
@@ -185,7 +185,7 @@
 	"cliente.h"
 	"informes.h"
 
-1571616004 c:\users\brian\desktop\primerparcial\parcialuno\informes.h
+1571630843 c:\users\brian\desktop\primerparcial\parcialuno\informes.h
 	"utn.h"
 	"cliente.h"
 	"pedidos.h"
