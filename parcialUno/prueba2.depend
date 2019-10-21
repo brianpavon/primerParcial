@@ -106,7 +106,7 @@
 	"utn.h"
 	"cliente.h"
 
-1571310868 source:c:\users\brian\desktop\primerparcial\parcialuno\cliente.c
+1571506967 source:c:\users\brian\desktop\primerparcial\parcialuno\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>
@@ -114,43 +114,44 @@
 	"utn.h"
 	"cliente.h"
 
-1571310868 c:\users\brian\desktop\primerparcial\parcialuno\utn.h
+1571506967 c:\users\brian\desktop\primerparcial\parcialuno\utn.h
 	<stdio.h>
 	<stdlib.h>
 
-1571310868 c:\users\brian\desktop\primerparcial\parcialuno\cliente.h
+1571506967 c:\users\brian\desktop\primerparcial\parcialuno\cliente.h
 	"utn.h"
 
-1571312506 source:c:\users\brian\desktop\primerparcial\parcialuno\main.c
+1571508014 source:c:\users\brian\desktop\primerparcial\parcialuno\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 	"validaciones.h"
 	"cliente.h"
 	"pedidos.h"
+	"informes.h"
 
-1571310868 c:\users\brian\desktop\primerparcial\parcialuno\validaciones.h
+1571506967 c:\users\brian\desktop\primerparcial\parcialuno\validaciones.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1571312506 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
+1571616756 c:\users\brian\desktop\primerparcial\parcialuno\pedidos.h
 	"utn.h"
 	"cliente.h"
 
-1571310868 source:c:\users\brian\desktop\primerparcial\parcialuno\utn.c
+1571506967 source:c:\users\brian\desktop\primerparcial\parcialuno\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1571310868 source:c:\users\brian\desktop\primerparcial\parcialuno\validaciones.c
+1571506967 source:c:\users\brian\desktop\primerparcial\parcialuno\validaciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"validaciones.h"
 
-1571282831 source:c:\users\brian\desktop\primerparcial\parcialuno\pedidos.c
+1571615367 source:c:\users\brian\desktop\primerparcial\parcialuno\pedidos.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>
@@ -170,6 +171,21 @@
 	"informes.h"
 
 1571357236 c:\users\alumno\desktop\primerparcial\parcialuno\informes.h
+	"utn.h"
+	"cliente.h"
+	"pedidos.h"
+
+1571613663 source:c:\users\brian\desktop\primerparcial\parcialuno\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"utn.h"
+	"pedidos.h"
+	"cliente.h"
+	"informes.h"
+
+1571616004 c:\users\brian\desktop\primerparcial\parcialuno\informes.h
 	"utn.h"
 	"cliente.h"
 	"pedidos.h"

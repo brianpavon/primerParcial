@@ -109,12 +109,14 @@ int pedidos_buscarLugarLibre(sPedido *pedido,int sizePedido)
 void pedido_hcData(sPedido *pedido, int sizePedido)
 {
     int i;
-    int id[]= {2,3,4,5,6};
-    float cantidadRecolectada[] = {20,30,110,90,130,50};
-	int idCliente[] = {3,8,9,7,2,4};
+    int id[]= {2,3,4,5,6,7,8,9};
+    int idCliente[] = {4,4,4,2,3,1,2,3};
+    float cantidadRecolectada[] = {2200,3000,750,900,1300,700,2000,1200};
+
 
     for(i=0; i<6; i++)
     {
+        pedido[i].idCliente = idCliente[i];
         pedido[i].idPedido = id[i];
         pedido[i].cantidadRecolectada = cantidadRecolectada[i];
         pedido[i].idCliente = idCliente[i];
@@ -154,6 +156,10 @@ int addPedidos(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido,
 	                    pedido[i].idCliente = auxPedido.idCliente;
 	                    pedido[i].idPedido = auxPedido.idPedido;
 	                    pedido[i].cantidadRecolectada = auxPedido.cantidadRecolectada;
+	                    pedido[i].plasticoHdpe = 0;
+                        pedido[i].plasticoLdpe = 0;
+                        pedido[i].plasticoPp = 0;
+	                    pedido[i].contPedidos = 0;
 	                    pedido[i].status = PENDIENTE;
 	                    printf("Se dio de alta al pedido %d para el cliente %s\n",pedido[i].idPedido,cliente[index].name);
 	                    system("pause");
@@ -186,16 +192,16 @@ int imprimirPedidosPendientesConClientes(sPedido *pedido, int sizePedido,sClient
 	if(pedido != NULL && sizePedido>0)
 	{
             retorno = 0;
-		    printf("%20s %20s %20s %20s %20s\n\n","ID Pedido","Cliente","CUIT","Direccion","Cantidad Recolectada");
+		    printf("%20s %20s %20s %20s %30s\n\n","ID Pedido","Cliente","CUIT","Direccion","Cantidad Recolectada");
 		    for(i=0; i<sizePedido; i++)
             {
                 if(pedido[i].status == PENDIENTE)
 
                 for(j=0 ; j<sizeCliente ; j++)
                 {
-                    if(cliente[j].idCliente == pedido[i].idCliente)
+                    if(cliente[j].idCliente == pedido[i].idCliente && cliente[j].status == STATUS_OCUPADO)
                     {
-                        printf("%20d %20s %20s %20s %20.2f\n",pedido[i].idPedido,cliente[j].name,cliente[j].cuit,cliente[j].direccion,pedido[i].cantidadRecolectada);
+                        printf("%20d %20s %20s %20s %30.2f\n",pedido[i].idPedido,cliente[j].name,cliente[j].cuit,cliente[j].direccion,pedido[i].cantidadRecolectada);
                     }
 
                 }
@@ -369,7 +375,7 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
 	if(pedido != NULL && sizePedido > 0 && cliente != NULL && sizeCliente > 0 )
 	{
             retorno = 0;
-		    printf("%20s %20s %20s %20s %20s\n\n","ID Pedido","Cliente","CUIT","Direccion","Cantidad Recolectada");
+		    printf("%5s %18s %15s %20s %15s %15s %15s\n","ID Pedido","Cliente","CUIT","Direccion","Kg HDPE","Kg LDPE","Kg PP");
 		    for(i=0; i<sizePedido; i++)
             {
                 if(pedido[i].status == COMPLETADO)
@@ -377,7 +383,7 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
                 {
                     if(cliente[j].idCliente == pedido[i].idCliente)
                     {
-                        printf("%20d %20s %20s %20s %20.2f\n",pedido[i].idPedido,cliente[j].name,cliente[j].cuit,cliente[j].direccion,pedido[i].cantidadRecolectada);
+                        printf("%5d %18s %18s %18s %15.2f %15.2f %15.2f\n",pedido[i].idPedido,cliente[j].name,cliente[j].cuit,cliente[j].direccion,pedido[i].plasticoHdpe,pedido[i].plasticoLdpe,pedido[i].plasticoPp);
                     }
                 }
 
@@ -398,27 +404,26 @@ int imprimirPedidosCompletosConClientes(sPedido *pedido, int sizePedido,sCliente
  int cantidadDePedidosPorCliente(sPedido *pedido,int sizePedido,sCliente *cliente,int sizeCliente)
  {
      int retorno = -1;
-     int pedidos = 0;
-     int cantidadPedidos = 0;
      int j;
      int i;
+     int pedidosPendientes = 0;
 
      if(cliente != NULL && sizeCliente >0 && pedido != NULL && sizePedido > 0)
      {
-         printf("%20s %20s %20s %30s\n\n","Cliente","CUIT","Direccion","Cantidad de pedidos pendiente");
-         for(i=0 ; i<sizePedido ; i++)
+         printf("%20s %20s %20s %30s\n","Cliente","CUIT","Direccion","Cantidad de pedidos pendiente");
+         for(i=0 ; i<sizeCliente ; i++)
          {
-             if(pedido[i].status == PENDIENTE)
+             if(cliente[i].status == STATUS_OCUPADO)
              {
-                 for(j=0; j<sizeCliente ; j++)
+                 for(j=0; j<sizePedido ; j++)
                  {
-                     if(cliente[j].idCliente == pedido[i].idCliente && strcmp(cliente[j].name,cliente[j+1].name)!=0)
+                     if(cliente[i].idCliente == pedido[j].idCliente && pedido[j].status == PENDIENTE)
                      {
-
+                            pedido[j].contPedidos++;
+                            pedidosPendientes = pedidosPendientes + pedido[j].contPedidos;
+                            printf("%20s %20s %20s %20d\n",cliente[i].name,cliente[i].cuit,cliente[i].direccion,pedidosPendientes);
                             retorno = 0;
-                            pedidos++;
-                            cantidadPedidos = cantidadPedidos + pedidos;
-                            printf("%20s %20s %20s %20d\n",cliente[j].name,cliente[j].cuit,cliente[j].direccion,cantidadPedidos);
+                            break;
 
                      }
                  }

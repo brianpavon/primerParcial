@@ -23,7 +23,7 @@ int main()
     initArrayStructCliente(cliente,CANTIDAD_CLIENTES);
     initArrayStructPedido(pedido,CANTIDAD_PEDIDOS);
     cliente_hcData(cliente,CANTIDAD_CLIENTES);
-    //pedido_hcData(pedido, CANTIDAD_PEDIDOS);
+    pedido_hcData(pedido, CANTIDAD_PEDIDOS);
 	do
 	{
 	    system("cls");
