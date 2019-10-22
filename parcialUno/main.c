@@ -27,9 +27,15 @@ int main()
 	do
 	{
 	    system("cls");
-	    //cliente_hcData(cliente,CANTIDAD_CLIENTES);
     	printf("-------------------MENU DE OPCIONES-------------------\n\n");
-		printf("1-Alta Cliente:\n2-Menu de modificacion de cliente: \n3-Baja de cliente:\n4-Crear pedido:\n5-Procesar residuos\n6-Informes: \n7-Mas informes\n8-Salir\n");
+		printf("1-Alta Cliente:\n"
+                "2-Menu de modificacion de cliente:\n"
+                "3-Baja de cliente:\n"
+                "4-Crear pedido:\n"
+                "5-Procesar residuos\n"
+                "6-Informes:\n"
+                "7-Informes segunda parte\n"
+                "8-Salir\n");
 		getInt(&opcionMenu,"Ingrese la opcion: \n","Opcion incorrecta\n",0,8,2);
 		switch(opcionMenu)
 		{

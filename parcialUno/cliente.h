@@ -28,6 +28,7 @@ void menuModificacionClientes(sCliente *cliente, int sizeCliente);
 int bajaClientePorId(sCliente *cliente, int sizeCliente);
 int cliente_buscarPorIdSinPedirDatos(sCliente *cliente, int sizeCliente, int id);
 void cliente_hcData(sCliente *cliente, int sizeCliente);
+int imprimirClienteConSuCuit(sCliente *cliente, int sizeCliente);
 
 
 

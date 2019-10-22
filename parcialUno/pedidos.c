@@ -114,7 +114,7 @@ void pedido_hcData(sPedido *pedido, int sizePedido)
     float cantidadRecolectada[] = {2200,3000,750,900,1300,700,2000,1200};
 
 
-    for(i=0; i<6; i++)
+    for(i=0; i<8; i++)
     {
         pedido[i].idCliente = idCliente[i];
         pedido[i].idPedido = id[i];

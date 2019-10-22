@@ -32,7 +32,7 @@
                 "6-Cantidad de clientes que reciclaron mas de 1000 kgs\n"
                 "7-Cantidad de clientes que reciclaron menos de 100 kgs\n"
                 "8-Imprimir pedidos completados y porcentaje reciclado\n"
-                "9-Pedidos por localidad\n"
+                "9-Ingresar una localidad e imprimir pedidos pendientes de esa localidad\n"
                 "10-Cantidad de kgs de propileno promedio por cliente\n"
                 "11-Informar por CUIT, cantidad de kgs por tipo de plastico\n"
                 "12-Salir\n");
@@ -80,13 +80,19 @@
             system("cls");
             break;
          case 9:
-
+            informes_cantidadPorLocalidadPedidosPendientes(cliente,sizeCliente,pedido,sizePedido);
+            system("pause");
+            system("cls");
             break;
          case 10:
-
+            informes_promedioPropilenoPorCliente(cliente,sizeCliente,pedido,sizePedido);
+            system("pause");
+            system("cls");
             break;
          case 11:
-
+            informes_cantidadKilosPlasticoPorCuit(cliente,sizeCliente,pedido,sizePedido);
+            system("pause");
+            system("cls");
             break;
 
          }
@@ -444,6 +450,7 @@ int informes_clienteReciclaronMenosCienKilos(sCliente *cliente,int sizeCliente, 
              }
          }
         acumuladorClientes = acumuladorClientes + contadorClientes;
+
         printf("La cantidad de clientes que reciclaron menos de cien kgs fue: %d\n",acumuladorClientes);
      }
 
@@ -488,6 +495,192 @@ int informes_porcentajeReciclado(sCliente *cliente,int sizeCliente,sPedido *pedi
                     }
                 }
             }
+    }
+    return retorno;
+}
+
+ /**
+ * \brief funcion que imprime las localidades de los clientes activos
+ * \param array de estructura
+ * \param tamanio del array de estructura
+ * \param array de estructura
+ * \param tamanio del array de estructura
+ * \return 0 como señal de OK, sino devuelve -1
+ *
+ */
+int informes_imprimirLocalidades(sCliente *cliente,int sizeCliente)
+ {
+     int retorno = -1;
+     int i;
+     if(cliente != NULL && sizeCliente > 0)
+     {
+         printf("%19s\n","Localidad");
+         for(i=0; i<sizeCliente; i++)
+         {
+             if(cliente[i].status == STATUS_OCUPADO && cliente[i].localidad != NULL)
+             {
+                 printf("%20s\n",cliente[i].localidad);
+                 retorno = 0;
+             }
+         }
+     }
+
+     return retorno;
+ }
+
+  /**
+ * \brief funcion que imprime por localidad la cantidad de pedidos pendientes
+ * \param array de estructura
+ * \param tamanio del array de estructura
+ * \param array de estructura
+ * \param tamanio del array de estructura
+ * \return 0 como señal de OK, sino devuelve -1
+ *
+ */
+int informes_cantidadPorLocalidadPedidosPendientes(sCliente *cliente, int sizeCliente, sPedido *pedido, int sizePedido)
+ {
+     int retorno = -1;
+     int i;
+     int j;
+     int contadorPedidos = 0;
+     int acumPedidos = 0;
+     sCliente auxCliente;
+
+     if(cliente != NULL && sizeCliente>0 && pedido != NULL && sizePedido>0)
+     {
+         informes_imprimirLocalidades(cliente,sizeCliente);
+         getString(auxCliente.localidad,"Escriba la localidad\n","Dato incorrecto\n",0,CANTIDAD_LETRAS,2);
+
+         for(j=0; j<sizePedido; j++)
+         {
+             if(pedido[j].status == PENDIENTE)
+             {
+                 for(i=0; i<sizeCliente; i++)
+                 {
+                     if(cliente[i].status == STATUS_OCUPADO && strncmp(auxCliente.localidad,cliente[i].localidad,CANTIDAD_LETRAS)==0)
+                     {
+                         contadorPedidos++;
+                         retorno = 0;
+                     }
+                 }
+             }
+         }
+         acumPedidos = acumPedidos + contadorPedidos;
+         printf("La localidad %s tiene %d pedidos pendientes\n",auxCliente.localidad,acumPedidos);
+     }
+
+     return retorno;
+ }
+
+ /**
+ * \brief funcion que imprime el promedio de propileno por cliente
+ * \param array de estructura
+ * \param tamanio del array de estructura
+ * \param array de estructura
+ * \param tamanio del array de estructura
+ * \return 0 como señal de OK, sino devuelve -1
+ *
+ */
+int informes_promedioPropilenoPorCliente(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido)
+{
+	int i;
+	int j;
+	int retorno = -1;
+	int contadorCliente = 0;
+	int acumCliente = 0;
+	float acumPropileno = 0;
+	float promedio;
+	if(pedido != NULL && sizePedido > 0 && cliente != NULL && sizeCliente > 0 )
+	{
+
+		    for(i=0; i<sizeCliente; i++)
+            {
+                if(cliente[i].status == STATUS_OCUPADO)
+                {
+                    contadorCliente++;
+                    for(j=0 ; j<sizePedido ; j++)
+                    {
+                        if(pedido[j].status == COMPLETADO &&
+                           cliente[i].idCliente == pedido[j].idCliente &&
+                           pedido[j].plasticoPp > 0)
+                        {
+                            acumPropileno = acumPropileno + pedido[j].plasticoPp;
+                            retorno = 0;
+                        }
+                    }
+                }
+            }
+            acumCliente = acumCliente + contadorCliente;
+            promedio = acumPropileno / acumCliente;
+            //printf("%d\n",acumCliente);
+            //printf("%.2f\n",acumPropileno);
+            printf("El promedio de kgs de propileno por cliente es %.2f\n",promedio);
+    }
+    return retorno;
+}
+
+/**
+* \brief funcion que imprime por cuit la cantidad de kgs de plastico elegido
+* \param array de estructura
+* \param tamanio del array de estructura
+* \param array de estructura
+* \param tamanio del array de estructura
+* \return 0 como señal de OK, sino devuelve -1
+*
+*/
+int informes_cantidadKilosPlasticoPorCuit(sCliente *cliente,int sizeCliente,sPedido *pedido,int sizePedido)
+{
+    int retorno = -1;
+    int i;
+    int j;
+    int id;
+    int index;
+    int opcion;
+    float cantidadHdpe;
+    float cantidadLdpe;
+    float cantidadPp;
+
+    if(cliente != NULL && sizeCliente>0 && pedido != NULL && sizePedido>0)
+    {
+        imprimirClienteConSuCuit(cliente,sizeCliente);
+        getInt(&id,"Seleccione el CUIT mediante el ID correspondiente\n","El ID seleccionado no corresponde",0,CANTIDAD_CLIENTES,2);
+        index = cliente_buscarPorIdSinPedirDatos(cliente,sizeCliente,id);
+        if(cliente[index].status == STATUS_OCUPADO)
+        {
+            for(i=0; i<sizeCliente; i++)
+            {
+                for(j=0 ; j<sizePedido; j++)
+                {
+                    if(pedido[j].status == COMPLETADO && pedido[j].idCliente == cliente[index].idCliente)
+                    {
+                        cantidadHdpe =  pedido[j].plasticoHdpe;
+                        cantidadLdpe =  pedido[j].plasticoLdpe;
+                        cantidadPp =  pedido[j].plasticoPp;
+                        retorno = 0;
+                    }
+                }
+            }
+            printf("1-Plastico HDPE\n2-Plastico LDPE\n3-Plastico PP\n");
+            getInt(&opcion,"Elija el plastico\n","Dato invalido\n",0,3,2);
+            switch(opcion)
+            {
+                case 1:
+                    printf("Cantidad de kgs de HDPE %.2f\n",cantidadHdpe);
+                    break;
+
+                case 2:
+                    printf("Cantidad de kgs de LDPE %.2f\n",cantidadLdpe);
+                    break;
+                case 3:
+                    printf("Cantidad de kgs de PP %.2f\n",cantidadPp);
+                    break;
+            }
+        }
+        else
+        {
+            printf("El dato ingresado no corresponde a un cliente valido\n");
+        }
+
     }
     return retorno;
 }

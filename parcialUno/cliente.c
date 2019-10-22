@@ -357,4 +357,31 @@ int bajaClientePorId(sCliente *cliente, int sizeCliente)
 }
 
 
+/**
+ * \brief funcion que imrprime clientes relacionando su id y su cuit
+ * \param array de estructura
+ * \param tamanio del array de estructura
+ * \return si pudo encontrar los campos cargados devuelve un 0, como señal de OK, sino devuelve -1
+ *
+ */
+int imprimirClienteConSuCuit(sCliente *cliente, int sizeCliente)
+{
+	int i;
+	int retorno = -1;
+	if(cliente != NULL && sizeCliente>0)
+	{
+            retorno = 0;
+		    printf("\n\n%3s %20s\n\n","ID","CUIT");
+		    for(i=0; i<sizeCliente; i++)
+            {
+                if(cliente[i].status == STATUS_OCUPADO)
+                {
+
+                    printf("%3d %20s\n",cliente[i].idCliente,cliente[i].cuit);
+                }
+
+            }
+    }
+    return retorno;
+}
 
