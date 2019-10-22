@@ -109,12 +109,12 @@ int pedidos_buscarLugarLibre(sPedido *pedido,int sizePedido)
 void pedido_hcData(sPedido *pedido, int sizePedido)
 {
     int i;
-    int id[]= {2,3,4,5,6,7,8,9};
-    int idCliente[] = {4,4,4,2,3,1,2,3};
-    float cantidadRecolectada[] = {2200,3000,750,900,1300,700,2000,1200};
+    int id[]= {2,3,4,5,6,7,8,9,10};
+    int idCliente[] = {4,4,4,2,3,1,6,6,5};
+    float cantidadRecolectada[] = {2200,3000,750,900,1300,700,2000,1200,5000};
 
 
-    for(i=0; i<8; i++)
+    for(i=0; i<9; i++)
     {
         pedido[i].idCliente = idCliente[i];
         pedido[i].idPedido = id[i];

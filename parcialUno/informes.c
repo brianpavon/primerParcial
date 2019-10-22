@@ -514,11 +514,12 @@ int informes_imprimirLocalidades(sCliente *cliente,int sizeCliente)
      int i;
      if(cliente != NULL && sizeCliente > 0)
      {
-         printf("%19s\n","Localidad");
+         printf("%19s\n\n","Localidad:");
          for(i=0; i<sizeCliente; i++)
          {
              if(cliente[i].status == STATUS_OCUPADO && cliente[i].localidad != NULL)
              {
+
                  printf("%20s\n",cliente[i].localidad);
                  retorno = 0;
              }
@@ -551,13 +552,14 @@ int informes_cantidadPorLocalidadPedidosPendientes(sCliente *cliente, int sizeCl
          informes_imprimirLocalidades(cliente,sizeCliente);
          getString(auxCliente.localidad,"Escriba la localidad\n","Dato incorrecto\n",0,CANTIDAD_LETRAS,2);
 
-         for(j=0; j<sizePedido; j++)
+         for(i=0; i<sizeCliente; i++)
          {
-             if(pedido[j].status == PENDIENTE)
+             if(cliente[i].status == STATUS_OCUPADO &&
+                strncmp(cliente[i].localidad,auxCliente.localidad,CANTIDAD_LETRAS)==0)
              {
-                 for(i=0; i<sizeCliente; i++)
+                 for(j=0; j<sizePedido; j++)
                  {
-                     if(cliente[i].status == STATUS_OCUPADO && strncmp(auxCliente.localidad,cliente[i].localidad,CANTIDAD_LETRAS)==0)
+                     if(pedido[j].status == PENDIENTE && pedido[j].idCliente == cliente[i].idCliente)
                      {
                          contadorPedidos++;
                          retorno = 0;

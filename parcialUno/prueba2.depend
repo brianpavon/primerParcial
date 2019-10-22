@@ -151,7 +151,7 @@
 	<string.h>
 	"validaciones.h"
 
-1571718918 source:c:\users\brian\desktop\primerparcial\parcialuno\pedidos.c
+1571723066 source:c:\users\brian\desktop\primerparcial\parcialuno\pedidos.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>
@@ -175,7 +175,7 @@
 	"cliente.h"
 	"pedidos.h"
 
-1571720345 source:c:\users\brian\desktop\primerparcial\parcialuno\informes.c
+1571722774 source:c:\users\brian\desktop\primerparcial\parcialuno\informes.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio.h>
